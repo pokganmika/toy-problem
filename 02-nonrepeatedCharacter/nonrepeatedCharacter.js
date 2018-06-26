@@ -6,6 +6,6 @@
  *   firstNonRepeatedCharacter('AACBDB'); // => 'C'
  */
 
-var firstNonRepeatedCharacter = function (string) {
+var firstNonRepeatedCharacter = function(string) {
   // TODO: your solution here
 };
