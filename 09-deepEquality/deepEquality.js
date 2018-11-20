@@ -12,4 +12,11 @@
   *
   */
 var deepEquals = function(apple, orange){
+  
+  if (apple === orange) {
+    return true;
+  } else {
+    return false;
+  }
+
 };
