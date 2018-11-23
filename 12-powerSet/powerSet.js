@@ -18,4 +18,25 @@
  */
 
 var powerSet = function(str){
+
+  var result = [''];
+  var one = str.split('').sort();
+  result = result.concat(one);
+  
+  var find = (length) => {
+
+    if (length > one.length) {
+      return result;
+    } else {
+      var temp = [];
+      for (var i = 0; i < one.length; i++) {
+        for(var j = 0 ; j < )
+      }
+      result = result.concat(temp);
+      find(length + 1);
+    }
+
+  }
+
+  return find(2)
 }
