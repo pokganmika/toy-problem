@@ -25,7 +25,7 @@ var powerSet = function(str){
   
   var find = (length) => {
 
-    if (length > one.length) {
+     if (length > one.length) {
       return result;
     } else {
       var temp = [];
@@ -35,8 +35,8 @@ var powerSet = function(str){
       result = result.concat(temp);
       find(length + 1);
     }
+    
+   }
 
-  }
-
-  return find(2)
+   return find(2)
 }
