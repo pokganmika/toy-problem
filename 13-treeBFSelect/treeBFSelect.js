@@ -39,6 +39,22 @@ var Tree = function(value){
 
 Tree.prototype.BFSelect = function(filter) {
   // return an array of values for which the function filter(value, depth) returns true
+  var 결과값 = [];
+  var 배열 = [this];
+  this.깊이 = 0;
+
+  while (배열.length !== 0) {
+    var 노두 = 배열.shift();
+   
+    if (filter(노두.value, 노두.깊이)) {
+      결과값.push(노두.value);
+    }
+    노두.children.forEach(child => {
+      child.깊이 = 노두.깊이 + 1;
+      배열.push(child);
+    });
+  }
+  return 결과값;
 };
 
 /**
@@ -94,3 +110,19 @@ Tree.prototype.removeChild = function(child){
     throw new Error("That node is not an immediate child of this tree");
   }
 };
+
+var root1 = new Tree(1);
+var branch2 = root1.addChild(2);
+var branch3 = root1.addChild(3);
+var leaf4 = branch2.addChild(4);
+var leaf5 = branch2.addChild(5);
+var leaf6 = branch3.addChild(6);
+var leaf7 = branch3.addChild(7);
+
+console.log(root1);
+console.log(branch2);
+console.log(branch3);
+console.log(leaf4);
+console.log(leaf5);
+console.log(leaf6);
+console.log(leaf7);

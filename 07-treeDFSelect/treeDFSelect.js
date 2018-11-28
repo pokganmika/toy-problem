@@ -36,7 +36,23 @@ var Tree = function(value){
 };
 
 Tree.prototype.DFSelect = function(filter) {
+  var result = [];
+  var temp = [];
+
+  var treeCheck = function (tree, depth) {
+    var vd = [tree.value, depth];
+    temp.push(vd);
+
+    for (var i = 0; i < tree.children; i++) {
+      if(tree.children[i])
+    }
+
+
+  }
+  
+
 };
+
 
 
 
