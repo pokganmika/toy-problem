@@ -24,6 +24,21 @@
  *
  */
 var balancedParens = function(input){
+
+  if (input.length % 2 === 1 || typeof input !== 'string') {
+    return false;
+  } else if (input[0] === ')' || ']' || '}') {
+    return false;
+  }
+
+  const arr = input.split('');
+  const filtered = arr.filter(value => value === '(' || value === ')' ||
+   value === '{' || value === '}' || value === '[' || value === ']');
+
+  // if (input === '') {
+  //   return true;
+  // }
+
 };
 
 
