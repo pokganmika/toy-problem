@@ -14,6 +14,7 @@
 
 var longestRun = function (string) {
   // TODO: Your code here!
+  
 };
 
 // If you need a random string generator, use this!
@@ -28,3 +29,6 @@ var randomString = function (len) {
 
   return text;
 };
+
+var temp = randomString(10);
+console.log(temp);
