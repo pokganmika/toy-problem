@@ -17,4 +17,36 @@
 var spiralTraversal = function(matrix){
 
   // TODO: Implement me!
+  const result = [];
+
+  const makeSpiral = function(arr) {
+
+    if (arr.length === 0) return;
+    
+    const firstRow = arr.splice(0,1)
+    for (let i = 0; i < firstRow.length; i++) {
+      result.push(firstRow[i])
+    }
+
+    for (i = 0; i < arr.length; i ++) {
+      if (arr[i] !== arr[arr.length - 1]) {
+        let lastElement = arr[i].splice(arr[i].length - 1, 1)
+        result.push(lastElement);
+      } else if (arr[i] === arr[arr.length - 1]) {
+        let lastRow = arr.splice(arr.length - 1, 1)
+        result.push(lastRow[0].reverse());
+      }
+    }
+    makeSpiral(arr);
+  }
+  makeSpiral(matrix);
+
+  const re = [];
+  for(let i = 0; i < result.length; i++){
+    for(let j = 0; j < result[i].length; j++){
+      re.push(result[i][j]);
+    }
+  }
+  return re;
+  // return result;
 };
