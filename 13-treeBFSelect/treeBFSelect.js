@@ -39,13 +39,13 @@ var Tree = function(value){
 
 Tree.prototype.BFSelect = function(filter) {
   // return an array of values for which the function filter(value, depth) returns true
-  var 결과값 = [];
-  var 배열 = [this];
+  const 결과값 = [];
+  const 배열 = [this];
   this.깊이 = 0;
 
   while (배열.length !== 0) {
-    var 노두 = 배열.shift();
-   
+    const 노두 = 배열.shift();
+
     if (filter(노두.value, 노두.깊이)) {
       결과값.push(노두.value);
     }
