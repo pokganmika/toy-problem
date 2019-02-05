@@ -14,7 +14,54 @@
 
 var longestRun = function (string) {
   // TODO: Your code here!
+
+  let result = [0, 0];
+  let longest = 1;
+  let start = 0;
+  let streak = 1;
+  let current;
+
+  for (let i = 0; i < string.length; i++) { 
+    if (string[i] !== longest) {
+      if (streak > longest) {
+        longest = streak;
+        result = [start, i - 1];
+      }
+      current = string[i]
+      start = i;
+      streak = 1;
+    } else { 
+      streak++
+      if (streak > longest) { 
+        result = [start, i];
+      }
+    }
+  }
+  return string.length > 0 ? result : null;
+
+  //-----
+  // let sorted = string.split('').sort().join() // str
+  let sorted = string.split('').sort() // arr
   
+  const tempObj = {};
+  for (let i = 0; i < sorted.length; i++) { 
+    if (sorted[i] in tempObj) { // if (tempObj[sorted[i]])
+      tempObj[sorted[i]] += 1
+    } else { 
+      tempObj[sorted[i]] = 1
+    }
+  }
+
+  // let temp;
+  // for (i = 0; i < Object.keys(tempObj).length; i++) { 
+  //   if ((Object.keys(tempObj)[i] < Object.keys(tempObj)[i + 1])
+  //     && Object.keys(tempObj)[i + 1]) { 
+  //     temp = Object.keys(tempObj)
+  //   }
+  // }
+
+  // return temp;
+  return tempObj
 };
 
 // If you need a random string generator, use this!
@@ -31,4 +78,6 @@ var randomString = function (len) {
 };
 
 var temp = randomString(10);
-console.log(temp);
+console.log('temp check : ',temp);
+var result = longestRun(temp);
+console.log('result check : ', result);
