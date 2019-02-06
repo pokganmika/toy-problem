@@ -53,6 +53,10 @@ var sumArray = function(array) {
   // }
 };
 
-const arr = [1,2,3];
-const result = sumArray(arr)
-console.log('result : ',result);
+// const arr = [1,2,3];
+// const result = sumArray(arr)
+// console.log('result : ',result);
+
+const arr = [4,-1,5]
+const result = arr.sort().reverse()
+console.log('sorted : ', result)
