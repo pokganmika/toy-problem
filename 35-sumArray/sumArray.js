@@ -11,4 +11,48 @@
 
 // Solved in O(n) time with O(1) memory
 var sumArray = function(array) {
+  let result = 0;
+
+  if (array[array.length - 1] < 0) {
+    for (let i = 0; i < array.length - 1; i++) {
+      result = result + array[i]
+    }
+  } else if (array[array.length - 2] < 0) {
+    let all = 0;
+    let notAll = 0;
+
+    for (i = 0; i < array.length; i++) {
+      all = all + array[i]
+    }
+
+    for (i = 0; i < array.length - 2; i++) {
+      notAll = notAll + array[i]
+    }
+
+    return all > notAll ? all : notAll
+
+  } else {
+    for (i = 0; i < array.length; i++) {
+      result = result + array[i]
+    }
+  }
+
+  return result;
+
+  //-----
+
+  // let result = 0;
+  // let temp;
+
+  // for (let i = 0; i < array.length; i++) {
+  //   temp = result;
+  //   result = result + array[i];
+
+  //   return result > temp ? result : temp;
+  
+  // }
 };
+
+const arr = [1,2,3];
+const result = sumArray(arr)
+console.log('result : ',result);
