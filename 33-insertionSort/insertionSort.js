@@ -46,8 +46,22 @@ var testingTransform = function(array) {
   return transform;
 };
 
-var insertionSort = function(array
-) {
+var insertionSort = function(array) {
   // Your code goes here. Feel free to add helper functions if needed.
-  return array;
+  // const 기본 = testingTransform(array);
+
+  // const 결과 = 기본.sort((a, b) => { 
+  //   return a.value - b.value;
+  // })
+
+  // return 결과;
+
+  const 결과 = array.sort((a, b) => { 
+    return a.value - b.value;
+  })
+
+  return 결과;
 };
+
+const result = insertionSort([{ value: 2 }, { value: 1 }, { value: 3 }]);
+console.log('result : ', result);
