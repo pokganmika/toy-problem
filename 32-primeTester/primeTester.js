@@ -10,6 +10,15 @@ var primeTester = function(n) {
     return false;
   }
   // TODO: return true if n is prime, false otherwise
+  let divisor = 2;
+  while (divisor < n) {
+    if (n % divisor) {
+      divisor++;
+    } else {
+      return false;
+    }
+  }
+  return true;
 };
 
 /* Extra credit: Write a function that generates a list of all prime numbers
@@ -19,6 +28,11 @@ var primeTester = function(n) {
  */
 
 var primeSieve = function (start, end) {
+  const result = [];
+  for (let i = start; i <= end; i++) {
+    primeTester(i) && result.push(i)
+  }
+  return result
 };
 
 
