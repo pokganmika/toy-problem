@@ -14,4 +14,15 @@
 
 var allAnagrams = function(string) {
   // Your code here.
+  if (string.length <= 1) {
+    return [string]
+  } else {
+    var result = [];
+
+    const recur = str => {
+
+    }
+
+  }
+  recur(string)
 };
