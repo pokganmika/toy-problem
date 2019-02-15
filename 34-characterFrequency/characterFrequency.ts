@@ -1,4 +1,3 @@
-"use strict";
 /*
  *  Write a function that takes as its input a string and returns an array of
  *  arrays as shown below sorted in descending order by frequency and then by
@@ -35,23 +34,29 @@
  *  ]
  *
  */
-const characterFrequency = (string) => {
-    const result = [];
-    const temp = {};
-    for (let i = 0; i < string.length; i++) {
-        const char = string[i];
-        const charCount = temp[char];
-        temp[char] = charCount ? charCount + 1 : 1;
-    }
-    for (let key in temp) {
-        let element = [key, temp[key]];
-        result.push(element);
-    }
-    result.sort((prev, next) => {
-        return next[1] - prev[1];
-    });
-    return result;
+
+const characterFrequency = (string: string) => {
+  const result: [string, number][] = [];
+
+  const temp: { [key: string]: number } = {};
+
+  for (let i = 0; i < string.length; i++) {
+    const char = string[i];
+    const charCount = temp[char];
+    temp[char] = charCount ? charCount + 1 : 1;
+  }
+
+  for (let key in temp) {
+    let element: [string, number] = [key, temp[key]];
+    result.push(element);
+  }
+
+  result.sort((prev, next) => {
+    return next[1] - prev[1];
+  });
+
+  return result;
 };
+
 console.log('result : ', characterFrequency('mississippi'));
 console.log('end');
-//# sourceMappingURL=characterFrequency.js.map
