@@ -1,4 +1,3 @@
-"use strict";
 /**
  * Write a function that rotates a NxN matrix 90 degrees.
  *
@@ -43,19 +42,23 @@
  *  - Make your function operate on rectangular matrices (MxN rather than NxN).
  *  - Make your function accept a parameter for the direction of rotation (1 = clockwise, -1 = counterclockwise)
  */
-const rotateMatrix = (matrix) => {
-    // Your code here.
-    // const result: string | number[][] = [];
-    const result = [];
-    let count = matrix.length;
-    for (let i = 0; i < count; i++) {
-        result[i] = [];
-        for (let j = 0; j < count; j++) {
-            result[i][j] = matrix[count - j - 1][i];
-        }
+
+const rotateMatrix = (matrix: string | number[][]) => {
+  // Your code here.
+  // const result: string | number[][] = [];
+  const result: any = [];
+
+  let count: number = matrix.length;
+
+  for (let i: number = 0; i < count; i++) {
+    result[i] = [];
+    for (let j: number = 0; j < count; j++) {
+      result[i][j] = matrix[count-j-1][i]
     }
-    return result;
+  }
+
+  return result;
 };
-console.log('result : ', rotateMatrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]));
+
+console.log('result : ', rotateMatrix([[1,2,3],[4,5,6],[7,8,9]]));
 console.log('end');
-//# sourceMappingURL=rotateMatrix.js.map
