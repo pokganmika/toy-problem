@@ -1,4 +1,3 @@
-"use strict";
 /*
  * Each number key on a standard phone keypad has a set of Latin letters written on
  * it as well: http://en.wikipedia.org/wiki/File:Telephone-keypad2.svg
@@ -27,39 +26,46 @@
  *  Why not filter your results to only return words contained in that file?
  *
  */
-const phoneDigitsToLetters = {
-    0: '0',
-    1: '1',
-    2: 'ABC',
-    3: 'DEF',
-    4: 'GHI',
-    5: 'JKL',
-    6: 'MNO',
-    7: 'PQRS',
-    8: 'TUV',
-    9: 'WXYZ'
+
+const phoneDigitsToLetters: any = {
+  0: '0',
+  1: '1',
+  2: 'ABC',
+  3: 'DEF',
+  4: 'GHI',
+  5: 'JKL',
+  6: 'MNO',
+  7: 'PQRS',
+  8: 'TUV',
+  9: 'WXYZ'
 };
-const telephoneWords = (digitString) => {
-    // TODO: return every combination that can be spelled on a phone with these digits
-    const result = [];
-    const temp = [];
-    const make = (i) => {
-        // const t: string = digitString[i];
-        // const letters: string = phoneDigitsToLetters[t];
-        const letters = phoneDigitsToLetters[digitString[i]];
-        for (let j = 0; j < letters.length; j++) {
-            temp[i] = letters[j];
-            if (i === digitString.length - 1) {
-                result.push(temp.join(''));
-            }
-            if (i < digitString.length - 1) {
-                make(i + 1);
-            }
-        }
-    };
-    make(0);
-    return result;
+
+type StrArr = string[];
+
+const telephoneWords = (digitString: string): StrArr => {
+  // TODO: return every combination that can be spelled on a phone with these digits
+  const result: StrArr = [];
+  const temp: StrArr = [];
+
+  const make = (i: number) => {
+    // const t: string = digitString[i];
+    // const letters: string = phoneDigitsToLetters[t];
+    const letters: string = phoneDigitsToLetters[digitString[i]];
+
+    for (let j: number = 0; j < letters.length; j++) {
+      temp[i] = letters[j];
+      if (i === digitString.length - 1) {
+        result.push(temp.join(''));
+      }
+      if (i < digitString.length - 1) {
+        make(i + 1);
+      }
+    }
+  };
+
+  make(0);
+  return result;
 };
+
 console.log('check : ', telephoneWords('0002'));
 console.log('end');
-//# sourceMappingURL=telephoneWords.js.map
