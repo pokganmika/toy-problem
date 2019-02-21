@@ -1,4 +1,3 @@
-"use strict";
 /**
  * Given an array containing a deck of cards, implement a function that shuffles
  * the deck.
@@ -31,37 +30,45 @@
  *   shuffles before a real deck is actually randomized.
  *   See https://www.dartmouth.edu/~chance/teaching_aids/books_articles/Mann.pdf .
  */
-const shuffleDeck = (deck) => {
-    // Your code here
-    function getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min)) + min;
+
+const shuffleDeck = (deck: string[]): string[] => {
+  // Your code here
+  function getRandomInt(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+
+  const result: string[] = [];
+  const temp: number[] = [];
+
+  while (temp.length !== deck.length) {
+    let tempCardIndex: number = getRandomInt(0, deck.length);
+    if (temp.indexOf(tempCardIndex) === -1) {
+      temp.push(tempCardIndex);
     }
-    const result = [];
-    const temp = [];
-    while (temp.length !== deck.length) {
-        let tempCardIndex = getRandomInt(0, deck.length);
-        if (temp.indexOf(tempCardIndex) === -1) {
-            temp.push(tempCardIndex);
-        }
-    }
-    for (let i = 0; i < temp.length; i++) {
-        result.push(deck[temp[i]]);
-    }
-    return result;
+  }
+
+  for (let i: number = 0; i < temp.length; i++) {
+    result.push(deck[temp[i]])
+  }
+
+  return result;
 };
+
 // Ordered deck generator provided for your testing convenience
 // (You may alter this function, but an unaltered copy will be used for tests.)
-const orderedDeck = () => {
-    var suits = ['♥', '♣', '♠', '♦'];
-    var values = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'];
-    var deck = [];
-    suits.forEach(function (suit) {
-        values.forEach(function (value) {
-            deck.push(value + suit);
-        });
+const orderedDeck = (): string[] => {
+  var suits: string[] = [ '♥', '♣', '♠', '♦' ];
+  var values: (string | number)[]  = [ 'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K' ];
+  var deck: string[] = [];
+
+  suits.forEach(function(suit) {
+    values.forEach(function(value) {
+      deck.push(value + suit);
     });
-    return deck;
+  });
+
+  return deck;
 };
+
 console.log('check : ', shuffleDeck(orderedDeck()));
 console.log('end');
-//# sourceMappingURL=shuffleDeck.js.map
